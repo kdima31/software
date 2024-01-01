@@ -108,7 +108,7 @@ const AddProduct = (props) => {
 							}}
 						/>
 					</Col>
-					<Col xs='12' md='12'>
+					{/* <Col xs='12' md='12'>
 						<SelectOption
 							error={formErrors['taxable']}
 							label={'Skin Type'}
@@ -119,7 +119,7 @@ const AddProduct = (props) => {
 								productChange('taxable', value);
 							}}
 						/>
-					</Col>
+					</Col> */}
 					<Col xs='12' md='12'>
 						<SelectOption
 							disabled={user.role === ROLES.Merchant}

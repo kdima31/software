@@ -109,13 +109,21 @@ const ProductFilter = (props) => {
 	const { filterProducts } = props;
 
 	const myskinfilter = async (e) => {
-		await fetch(`${API_URL}/list/product/skinType:${e}`)
-			.then((data) => {
-				// TODO
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
+		try {
+			const response = await fetch(
+				`${API_URL}/list/product/skinType/:${encodedSkinType}`
+			);
+
+			if (!response.ok) {
+				throw new Error(`API request failed with status ${response.status}`);
+			}
+
+			const data = await response.json();
+
+			return data;
+		} catch (error) {
+			console.error('Error fetching skin-filtered products:', error);
+		}
 	};
 	return (
 		<div className='product-filter'>
